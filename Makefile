@@ -1,2 +1,2 @@
-main.native:
-	ocamlbuild -use-ocamlfind -package core,core_bench,stdint,batteries -tag thread  -tag annot main.native -lflags -O2
+main.native: main.ml stubs.c
+	ocamlfind ocamlopt -linkpkg -package core,core_bench,stdint,batteries -thread  -annot -O2 main.ml stubs.c -o main.native
